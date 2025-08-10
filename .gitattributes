@@ -1,0 +1,2 @@
+AINews/*.pdf filter=lfs diff=lfs merge=lfs -text
+AINews/*.md filter=lfs diff=lfs merge=lfs -text

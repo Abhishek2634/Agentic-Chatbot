@@ -1,3 +1,6 @@
 venv/
 __pycache__
+# Ignore AINews contents but allow directory structure
 AINews/*
+AINews/*
+!AINews/.gitkeep
