@@ -94,7 +94,7 @@ The app will open in your browser at `http://localhost:8501`
 - Requires both Groq and Tavily API keys
 
 ## 📁 Project Structure
-
+```bash
 AgenticChatbot/
 ├── app.py # Main entry point
 ├── requirements.txt # Dependencies
@@ -127,25 +127,26 @@ AgenticChatbot/
 │ ├── uiconfigfile.py # Configuration management
 │ ├── uiconfigfile.ini # App configuration
 │ └── streamlitui/
-│ ├── init.py
-│ ├── loadui.py # UI components
-│ └── display_result.py # Result display
+| | ├── init.py
+| | ├── loadui.py # UI components
+| | |── display_result.py # Result display
 
+```
 
 
 ## 🛠️ Dependencies
 
 ### Core Dependencies
 
-**langchain**
-**langgraph**
-**langchain_community**
-**langchain_core**
-**langchain-groq**
-**langchain_openai**
-**faiss-cpu**
-**streamlit**
-**tavily-python**
+- **langchain**
+- **langgraph**
+- **langchain_community**
+- **langchain_core**
+- **langchain-groq**
+- **langchain_openai**
+- **faiss-cpu**
+- **streamlit**
+- **tavily-python**
 
 
 
@@ -181,8 +182,6 @@ AgenticChatbot/
    - Your app will be available at `https://your-app-name.streamlit.app`
 
 
-**Built with ❤️ using LangGraph, Streamlit, and modern AI technologies**
-
 ### Quick Links
 
 - 🌐 [Live Demo](agentic-ai-chatbott.streamlit.app/)
@@ -190,3 +189,6 @@ AgenticChatbot/
 - 🚀 [Streamlit Documentation](https://docs.streamlit.io/)
 - 🤖 [Groq API](https://console.groq.com/)
 - 🔍 [Tavily Search](https://tavily.com/)
+
+
+**Built with ❤️ using LangGraph, Streamlit, and modern AI technologies**
