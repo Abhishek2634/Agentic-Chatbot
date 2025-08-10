@@ -46,7 +46,7 @@ class DisplayResultStreamlit:
                 result = graph.invoke({"messages": frequency})
             try:
                 # Read the markdown file:
-                AI_NEWS_PATH = f'./AINEWS/{frequency.lower()}_summary.md'
+                AI_NEWS_PATH = f'./AINews/{frequency.lower()}_summary.md'
                 with open(AI_NEWS_PATH, "r") as file:
                     markdown_content = file.read()
                 # Display the markdown content in Streamlit.
