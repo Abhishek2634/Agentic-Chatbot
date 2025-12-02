@@ -30,11 +30,15 @@ class LoadStreamlitUI:
                 model_options = self.config.get_groq_model_options()
                 self.user_controls["selected_groq_model"] = st.selectbox("Select Model", model_options)
                 
-                # Get GROQ_API_KEY from environment variable
-                groq_key_default = os.getenv("GROQ_API_KEY", "")
-                self.user_controls["GROQ_API_KEY"] = st.session_state["GROQ_API_KEY"] = st.text_input(
-                    "API key", 
-                    value=groq_key_default,
+                # Initialize session state with env variable if not exists
+                if "GROQ_API_KEY" not in st.session_state:
+                    st.session_state["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY", "")
+                
+                # Use key parameter - Streamlit handles session state automatically
+                self.user_controls["GROQ_API_KEY"] = st.text_input(
+                    "API key",
+                    value=st.session_state["GROQ_API_KEY"],
+                    key="groq_input",
                     type="password"
                 )
                 
@@ -46,13 +50,19 @@ class LoadStreamlitUI:
             self.user_controls["selected_usecase"] = st.selectbox("Select Usecases", usecase_options)
 
             if self.user_controls["selected_usecase"] == "Chatbot With Web" or self.user_controls['selected_usecase'] == "AI News":
-                # Get TAVILY_API_KEY from environment variable
-                tavily_key_default = os.getenv("TAVILY_API_KEY", "")
-                os.environ["TAVILY_API_KEY"] = self.user_controls["TAVILY_API_KEY"] = st.session_state["TAVILY_API_KEY"] = st.text_input(
+                # Initialize session state with env variable if not exists
+                if "TAVILY_API_KEY" not in st.session_state:
+                    st.session_state["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY", "")
+                
+                # Use key parameter - Streamlit handles session state automatically
+                self.user_controls["TAVILY_API_KEY"] = st.text_input(
                     "TAVILY API KEY",
-                    value=tavily_key_default,
+                    value=st.session_state["TAVILY_API_KEY"],
+                    key="tavily_input",
                     type="password"
                 )
+                
+                os.environ["TAVILY_API_KEY"] = self.user_controls["TAVILY_API_KEY"]
     
                 if not self.user_controls["TAVILY_API_KEY"]:
                     st.warning("Please enter your TAVILY API KEY to proceed. don't have ? proceed here: [http://tavily.com/](http://tavily.com/) ")
